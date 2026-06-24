@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ItCompe — Веб-разработка под ключ</title>
+<meta name="description" content="Создаю сайты, которые продают и выделяют бизнес. Лендинги, интернет-магазины, веб-приложения.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= NOISE / GRID OVERLAY ================= -->
+<div class="grid-overlay" aria-hidden="true"></div>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#top" class="logo">
+      <span class="logo-mark">IC</span>
+      <span class="logo-text">ItCompe<span class="logo-dot">.</span></span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#about" data-i18n="nav.about">Обо мне</a>
+      <a href="#services" data-i18n="nav.services">Услуги</a>
+      <a href="#work" data-i18n="nav.work">Портфолио</a>
+      <a href="#reviews" data-i18n="nav.reviews">Отзывы</a>
+      <a href="#contact" data-i18n="nav.contact">Контакты</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="lang-switch" id="langSwitch" aria-label="Switch language">
+        <span class="lang-opt is-active" data-lang="ru">RU</span>
+        <span class="lang-sep">/</span>
+        <span class="lang-opt" data-lang="en">EN</span>
+      </button>
+      <a href="#contact" class="btn btn-ghost btn-small" data-i18n="nav.cta">Связаться</a>
+      <button class="burger" id="burger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="hero">
+    <div class="hero-grid-lines" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="container hero-inner">
+      <p class="eyebrow reveal" data-i18n="hero.eyebrow">// веб-разработка под ключ</p>
+
+      <h1 class="hero-title">
+        <span class="reveal-line"><span class="reveal-word" data-i18n="hero.t1">Создаю сайты,</span></span>
+        <span class="reveal-line"><span class="reveal-word" data-i18n="hero.t2">которые</span> <span class="hero-accent" data-i18n="hero.t3">продают</span></span>
+        <span class="reveal-line"><span class="reveal-word" data-i18n="hero.t4">и выделяют бизнес</span></span>
+      </h1>
+
+      <p class="hero-sub reveal" data-i18n="hero.sub">
+        Дизайн, фронтенд и логика в одних руках. От первого экрана до продакшена — без агентского телефона и потерянных смыслов.
+      </p>
+
+      <div class="hero-cta reveal">
+        <a href="#contact" class="btn btn-primary">
+          <span data-i18n="hero.btn1">Обсудить проект</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#work" class="btn btn-ghost">
+          <span data-i18n="hero.btn2">Смотреть работы</span>
+        </a>
+      </div>
+
+      <div class="hero-meta reveal">
+        <div class="meta-item">
+          <span class="meta-num" data-count="127">0</span>
+          <span class="meta-label" data-i18n="hero.meta1">проектов сдано</span>
+        </div>
+        <div class="meta-divider"></div>
+        <div class="meta-item">
+          <span class="meta-num" data-count="5">0</span>
+          <span class="meta-label" data-i18n="hero.meta2">лет в разработке</span>
+        </div>
+        <div class="meta-divider"></div>
+        <div class="meta-item">
+          <span class="meta-num" data-count="98">0</span>
+          <span class="meta-label" data-i18n="hero.meta3">% — Google PageSpeed</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span data-i18n="hero.scroll">скролл</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow reveal" data-i18n="about.eyebrow">// обо мне</p>
+        <h2 class="section-title reveal" data-i18n="about.title">Один специалист. Полный цикл.</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-portrait reveal">
+          <div class="portrait-frame">
+            <div class="portrait-glow"></div>
+            <img src="profile-portrait.jpg" alt="Разработчик ItCompe" class="portrait-photo">
+          </div>
+          <div class="portrait-badge">
+            <span class="badge-dot"></span>
+            <span data-i18n="about.available">Открыт для проектов</span>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <p class="about-lead reveal" data-i18n="about.lead">
+            Я беру проект от макета до релиза — без передачи задачи между дизайнером, верстальщиком и бэкендером. Один человек, одна логика, один результат.
+          </p>
+          <p class="about-text reveal" data-i18n="about.text">
+            Работаю с бизнесом, которому важна скорость загрузки, конверсия и аккуратный код, а не просто «красивая картинка». Каждый сайт собирается под конкретную задачу клиента, а не из шаблона.
+          </p>
+
+          <div class="about-stack reveal">
+            <span class="stack-label" data-i18n="about.stackLabel">Стек:</span>
+            <div class="stack-pills">
+              <span class="pill">HTML / CSS</span>
+              <span class="pill">JavaScript</span>
+              <span class="pill">React</span>
+              <span class="pill">Node.js</span>
+              <span class="pill">Figma</span>
+              <span class="pill">GSAP</span>
+            </div>
+          </div>
+
+          <div class="about-principles reveal">
+            <div class="principle">
+              <span class="principle-idx">01</span>
+              <div>
+                <h3 data-i18n="about.p1Title">Скорость</h3>
+                <p data-i18n="about.p1Text">Чистый код без лишних библиотек — сайт грузится быстро на любом устройстве.</p>
+              </div>
+            </div>
+            <div class="principle">
+              <span class="principle-idx">02</span>
+              <div>
+                <h3 data-i18n="about.p2Title">Точность</h3>
+                <p data-i18n="about.p2Text">Дизайн строится вокруг цели бизнеса, а не вокруг тренда.</p>
+              </div>
+            </div>
+            <div class="principle">
+              <span class="principle-idx">03</span>
+              <div>
+                <h3 data-i18n="about.p3Title">Поддержка</h3>
+                <p data-i18n="about.p3Text">После запуска сайт не остаётся без присмотра — правки и доработки на связи.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow reveal" data-i18n="services.eyebrow">// услуги</p>
+        <h2 class="section-title reveal" data-i18n="services.title">Что я делаю</h2>
+        <p class="section-sub reveal" data-i18n="services.sub">Выбираю формат под задачу — от посадочной страницы до полноценного веб-приложения.</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="5" width="22" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 10H25" stroke="currentColor" stroke-width="1.5"/><circle cx="6.5" cy="7.5" r="0.75" fill="currentColor"/></svg>
+          </div>
+          <span class="service-num">01</span>
+          <h3 data-i18n="services.s1Title">Лендинги</h3>
+          <p data-i18n="services.s1Text">Одна страница с одной целью — заявка, продажа, запись. Заточена на конверсию с первого экрана.</p>
+          <ul class="service-list">
+            <li data-i18n="services.s1L1">Структура под продажу</li>
+            <li data-i18n="services.s1L2">Адаптация под мобильные</li>
+            <li data-i18n="services.s1L3">Интеграция с CRM/формами</li>
+          </ul>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="1.5"/><path d="M14 3C14 3 18 8 18 14C18 20 14 25 14 25" stroke="currentColor" stroke-width="1.5"/><path d="M14 3C14 3 10 8 10 14C10 20 14 25 14 25" stroke="currentColor" stroke-width="1.5"/><path d="M3 14H25" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <span class="service-num">02</span>
+          <h3 data-i18n="services.s2Title">Сайты-визитки</h3>
+          <p data-i18n="services.s2Text">Имиджевый сайт компании или специалиста: услуги, портфолио, контакты — аккуратно и по делу.</p>
+          <ul class="service-list">
+            <li data-i18n="services.s2L1">Фирменный стиль на сайте</li>
+            <li data-i18n="services.s2L2">SEO-структура</li>
+            <li data-i18n="services.s2L3">Лёгкое редактирование текста</li>
+          </ul>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 8L6 22H22L24 8" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M2 8H26" stroke="currentColor" stroke-width="1.5"/><path d="M10 8C10 5 11.5 3 14 3C16.5 3 18 5 18 8" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <span class="service-num">03</span>
+          <h3 data-i18n="services.s3Title">Интернет-магазины</h3>
+          <p data-i18n="services.s3Text">Каталог, корзина, оплата и личный кабинет — рабочий магазин, а не витрина для красоты.</p>
+          <ul class="service-list">
+            <li data-i18n="services.s3L1">Каталог и фильтры</li>
+            <li data-i18n="services.s3L2">Приём онлайн-оплаты</li>
+            <li data-i18n="services.s3L3">Админ-панель товаров</li>
+          </ul>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="16" y="3" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="16" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="16" y="16" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <span class="service-num">04</span>
+          <h3 data-i18n="services.s4Title">Веб-приложения</h3>
+          <p data-i18n="services.s4Text">Личные кабинеты, дашборды, внутренние сервисы — сложная логика, упакованная в простой интерфейс.</p>
+          <ul class="service-list">
+            <li data-i18n="services.s4L1">Авторизация и роли</li>
+            <li data-i18n="services.s4L2">Работа с API и базами данных</li>
+            <li data-i18n="services.s4L3">Масштабируемая архитектура</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WORK / PORTFOLIO ================= -->
+  <section class="work" id="work">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow reveal" data-i18n="work.eyebrow">// портфолио</p>
+        <h2 class="section-title reveal" data-i18n="work.title">Избранные проекты</h2>
+        <p class="section-sub reveal" data-i18n="work.sub">Каждый проект — отдельная задача бизнеса, решённая дизайном и кодом.</p>
+      </div>
+
+      <div class="work-filters reveal" id="workFilters" role="tablist">
+        <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">
+          <span data-i18n="work.filterAll">Все проекты</span>
+        </button>
+        <button class="filter-btn" data-filter="landing" role="tab" aria-selected="false">
+          <span data-i18n="work.filterLanding">Landing</span>
+        </button>
+        <button class="filter-btn" data-filter="ecommerce" role="tab" aria-selected="false">
+          <span data-i18n="work.filterEcom">E-commerce</span>
+        </button>
+        <button class="filter-btn" data-filter="webapp" role="tab" aria-selected="false">
+          <span data-i18n="work.filterApp">Web App</span>
+        </button>
+      </div>
+
+      <div class="work-grid" id="workGrid">
+
+        <article class="work-card reveal" data-category="webapp">
+          <div class="work-card-visual">
+            <span class="work-card-cat" data-i18n="work.p1Cat">01 / Web App</span>
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Nordvik Capital — crypto dashboard" loading="lazy">
+          </div>
+          <div class="work-card-info">
+            <div class="work-card-top">
+              <h3 data-i18n="work.p1Title">Nordvik Capital</h3>
+              <span class="work-year">2025</span>
+            </div>
+            <p data-i18n="work.p1Text">Платформа для инвесткомпании: живые графики, личный кабинет клиента, отчётность в реальном времени.</p>
+            <div class="work-tags">
+              <span data-i18n="work.p1Tag1">Веб-приложение</span>
+              <span data-i18n="work.p1Tag2">Дашборд</span>
+            </div>
+            <a href="#" class="work-link">
+              <span data-i18n="work.view">Смотреть проект</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="work-card reveal" data-category="ecommerce">
+          <div class="work-card-visual">
+            <span class="work-card-cat" data-i18n="work.p2Cat">02 / E-commerce</span>
+            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Marble & Co. — furniture store" loading="lazy">
+          </div>
+          <div class="work-card-info">
+            <div class="work-card-top">
+              <h3 data-i18n="work.p2Title">Marble & Co.</h3>
+              <span class="work-year">2025</span>
+            </div>
+            <p data-i18n="work.p2Text">Интернет-магазин дизайнерской мебели с 3D-просмотром товара и быстрым оформлением заказа.</p>
+            <div class="work-tags">
+              <span data-i18n="work.p2Tag1">E-commerce</span>
+              <span data-i18n="work.p2Tag2">3D-витрина</span>
+            </div>
+            <a href="#" class="work-link">
+              <span data-i18n="work.view">Смотреть проект</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="work-card reveal" data-category="landing">
+          <div class="work-card-visual">
+            <span class="work-card-cat" data-i18n="work.p3Cat">03 / Landing</span>
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Loopflow — SaaS landing page" loading="lazy">
+          </div>
+          <div class="work-card-info">
+            <div class="work-card-top">
+              <h3 data-i18n="work.p3Title">Loopflow</h3>
+              <span class="work-year">2024</span>
+            </div>
+            <p data-i18n="work.p3Text">Лендинг и онбординг для SaaS-сервиса автоматизации задач — рост конверсии в триал на 34%.</p>
+            <div class="work-tags">
+              <span data-i18n="work.p3Tag1">Лендинг</span>
+              <span data-i18n="work.p3Tag2">Онбординг</span>
+            </div>
+            <a href="#" class="work-link">
+              <span data-i18n="work.view">Смотреть проект</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="work-card reveal" data-category="landing">
+          <div class="work-card-visual">
+            <span class="work-card-cat" data-i18n="work.p4Cat">04 / Landing</span>
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Atelier Noir — restaurant site" loading="lazy">
+          </div>
+          <div class="work-card-info">
+            <div class="work-card-top">
+              <h3 data-i18n="work.p4Title">Atelier Noir</h3>
+              <span class="work-year">2024</span>
+            </div>
+            <p data-i18n="work.p4Text">Сайт-визитка ресторана: онлайн-бронирование стола и цифровое меню с фотосъёмкой блюд.</p>
+            <div class="work-tags">
+              <span data-i18n="work.p4Tag1">Визитка</span>
+              <span data-i18n="work.p4Tag2">Бронирование</span>
+            </div>
+            <a href="#" class="work-link">
+              <span data-i18n="work.view">Смотреть проект</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="work-card reveal" data-category="webapp">
+          <div class="work-card-visual">
+            <span class="work-card-cat" data-i18n="work.p5Cat">05 / Web App</span>
+            <img src="https://images.unsplash.com/photo-1638202993928-7267aad84c31?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Clarity Clinic — patient portal" loading="lazy">
+          </div>
+          <div class="work-card-info">
+            <div class="work-card-top">
+              <h3 data-i18n="work.p5Title">Clarity Clinic</h3>
+              <span class="work-year">2023</span>
+            </div>
+            <p data-i18n="work.p5Text">Запись к врачу онлайн, личный кабинет пациента с историей визитов и результатами анализов.</p>
+            <div class="work-tags">
+              <span data-i18n="work.p5Tag1">Веб-приложение</span>
+              <span data-i18n="work.p5Tag2">Личный кабинет</span>
+            </div>
+            <a href="#" class="work-link">
+              <span data-i18n="work.view">Смотреть проект</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="work-card reveal" data-category="ecommerce">
+          <div class="work-card-visual">
+            <span class="work-card-cat" data-i18n="work.p6Cat">06 / E-commerce</span>
+            <img src="https://images.unsplash.com/photo-1758270705290-62b6294dd044?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Mentora — online learning platform" loading="lazy">
+          </div>
+          <div class="work-card-info">
+            <div class="work-card-top">
+              <h3 data-i18n="work.p6Title">Mentora</h3>
+              <span class="work-year">2023</span>
+            </div>
+            <p data-i18n="work.p6Text">Образовательная платформа с курсами, прогрессом обучения и встроенной системой тестов.</p>
+            <div class="work-tags">
+              <span data-i18n="work.p6Tag1">Веб-приложение</span>
+              <span data-i18n="work.p6Tag2">EdTech</span>
+            </div>
+            <a href="#" class="work-link">
+              <span data-i18n="work.view">Смотреть проект</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <p class="work-empty" id="workEmpty" data-i18n="work.empty">В этой категории пока нет проектов — загляните позже.</p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= REVIEWS ================= -->
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow reveal" data-i18n="reviews.eyebrow">// отзывы</p>
+        <h2 class="section-title reveal" data-i18n="reviews.title">Что говорят клиенты</h2>
+      </div>
+
+      <div class="reviews-track-wrap reveal">
+        <div class="reviews-track" id="reviewsTrack">
+
+          <article class="review-card">
+            <div class="review-quote-mark">“</div>
+            <p class="review-text" data-i18n="reviews.r1Text">Сделали лендинг за две недели, и он реально начал приносить заявки с первого дня. Дотошность в деталях — отдельный респект.</p>
+            <div class="review-author">
+              <div class="review-avatar" style="background:linear-gradient(135deg,#C8FF3D,#5B7A1F)"></div>
+              <div>
+                <h4 data-i18n="reviews.r1Name">Игорь Савченко</h4>
+                <span data-i18n="reviews.r1Role">Основатель, Nordvik Capital</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-quote-mark">“</div>
+            <p class="review-text" data-i18n="reviews.r2Text">Магазин собрали именно так, как мы представляли — без компромиссов на скорость загрузки. Клиенты сами отметили, что сайт стал удобнее.</p>
+            <div class="review-author">
+              <div class="review-avatar" style="background:linear-gradient(135deg,#7DD3FC,#1E3A8A)"></div>
+              <div>
+                <h4 data-i18n="reviews.r2Name">Алина Марчук</h4>
+                <span data-i18n="reviews.r2Role">Co-founder, Marble & Co.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-quote-mark">“</div>
+            <p class="review-text" data-i18n="reviews.r3Text">Редкий случай, когда разработчик сам предлагает, как улучшить продукт, а не просто выполняет техзадание. Конверсия в триал выросла заметно.</p>
+            <div class="review-author">
+              <div class="review-avatar" style="background:linear-gradient(135deg,#FCA5A5,#7F1D1D)"></div>
+              <div>
+                <h4 data-i18n="reviews.r3Name">Дмитрий Костенко</h4>
+                <span data-i18n="reviews.r3Role">CEO, Loopflow</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-quote-mark">“</div>
+            <p class="review-text" data-i18n="reviews.r4Text">Бронирование столиков теперь занимает 30 секунд вместо звонков администратору. Гости часто хвалят сайт отдельно от кухни.</p>
+            <div class="review-author">
+              <div class="review-avatar" style="background:linear-gradient(135deg,#FDE68A,#92400E)"></div>
+              <div>
+                <h4 data-i18n="reviews.r4Name">Марта Лисовська</h4>
+                <span data-i18n="reviews.r4Role">Управляющая, Atelier Noir</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-quote-mark">“</div>
+            <p class="review-text" data-i18n="reviews.r5Text">Личный кабинет пациента собрали с учётом всех медицинских нюансов и сроков — никаких задержек по проекту не было вообще.</p>
+            <div class="review-author">
+              <div class="review-avatar" style="background:linear-gradient(135deg,#C4B5FD,#4C1D95)"></div>
+              <div>
+                <h4 data-i18n="reviews.r5Name">Олег Гнатюк</h4>
+                <span data-i18n="reviews.r5Role">Директор, Clarity Clinic</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="reviews-dots" id="reviewsDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-panel">
+        <div class="contact-glow" aria-hidden="true"></div>
+
+        <div class="contact-left">
+          <p class="eyebrow reveal" data-i18n="contact.eyebrow">// контакты</p>
+          <h2 class="section-title reveal" data-i18n="contact.title">Готовы обсудить проект?</h2>
+          <p class="contact-text reveal" data-i18n="contact.text">Опишите задачу в Telegram или оставьте сообщение здесь — отвечаю в течение дня.</p>
+
+          <a href="https://t.me/ItCompe" target="_blank" rel="noopener" class="btn btn-primary btn-tg reveal">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 4L2.5 11.5L9 14L11.5 21.5L15 16L20 19.5L22 4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 14L18 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span data-i18n="contact.tgBtn">Написать в Telegram</span>
+          </a>
+
+          <div class="contact-handle reveal">
+            <span data-i18n="contact.handleLabel">Telegram:</span>
+            <a href="https://t.me/ItCompe" target="_blank" rel="noopener">@ItCompe</a>
+          </div>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm">
+          <div class="form-row">
+            <label for="cf-name" data-i18n="contact.nameLabel">Имя</label>
+            <input type="text" id="cf-name" name="name" required data-i18n-placeholder="contact.namePh" placeholder="Как вас зовут">
+          </div>
+          <div class="form-row">
+            <label for="cf-contact" data-i18n="contact.contactLabel">Telegram или телефон</label>
+            <input type="text" id="cf-contact" name="contact" required data-i18n-placeholder="contact.contactPh" placeholder="@username / номер телефона">
+          </div>
+          <div class="form-row">
+            <label for="cf-msg" data-i18n="contact.msgLabel">Сообщение</label>
+            <textarea id="cf-msg" name="message" rows="4" required data-i18n-placeholder="contact.msgPh" placeholder="Расскажите о задаче — пару строк достаточно"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit" id="formSubmitBtn">
+            <span data-i18n="contact.send">Отправить</span>
+          </button>
+          <p class="form-note" data-i18n="contact.note">Данные отправляются только вам — никаких спамеров.</p>
+          <p class="form-success" id="formSuccess" data-i18n="contact.success">✓ Сообщение отправлено! Свяжусь с вами в течение дня.</p>
+          <p class="form-error" id="formError">Ошибка отправки. Напишите напрямую в <a href="https://t.me/ItCompe" target="_blank">Telegram</a>.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a href="#top" class="logo">
+      <span class="logo-mark">IC</span>
+      <span class="logo-text">ItCompe<span class="logo-dot">.</span></span>
+    </a>
+
+    <nav class="footer-nav">
+      <a href="#about" data-i18n="nav.about">Обо мне</a>
+      <a href="#services" data-i18n="nav.services">Услуги</a>
+      <a href="#work" data-i18n="nav.work">Портфолио</a>
+      <a href="#reviews" data-i18n="nav.reviews">Отзывы</a>
+      <a href="#contact" data-i18n="nav.contact">Контакты</a>
+    </nav>
+
+    <a href="https://t.me/ItCompe" target="_blank" rel="noopener" class="footer-tg">@ItCompe</a>
+  </div>
+  <div class="container footer-bottom">
+    <span data-i18n="footer.rights">© 2026 ItCompe. Все права защищены.</span>
+    <span class="footer-built" data-i18n="footer.built">Собрано вручную, без шаблонов.</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
