@@ -953,3 +953,255 @@ input,textarea{ font-family: inherit; background:none; border:none; color:inheri
   .about, .services, .work, .reviews{ padding: 80px 0 90px; }
   .lang-switch{ padding: 5px 10px; }
 }
+
+/* ===================================================================
+   НОВЫЕ АНИМАЦИИ — TYPEWRITER, GLITCH, PARTICLES, STAGGER
+=================================================================== */
+
+/* --- Typewriter cursor на eyebrow --- */
+.eyebrow-typed::after {
+  content: '|';
+  color: var(--accent);
+  animation: blink .7s step-end infinite;
+  margin-left: 2px;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+/* --- Glitch эффект на hero-accent --- */
+.hero-accent {
+  position: relative;
+}
+.hero-accent::before,
+.hero-accent::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--accent);
+  clip-path: polygon(0 30%, 100% 30%, 100% 60%, 0 60%);
+  opacity: 0;
+}
+.hero-accent::before {
+  transform: translateX(-3px);
+  color: #ff4fff;
+  animation: glitch1 6s infinite;
+}
+.hero-accent::after {
+  transform: translateX(3px);
+  color: #00f0ff;
+  animation: glitch2 6s infinite;
+}
+@keyframes glitch1 {
+  0%,94%,100%{opacity:0;transform:translateX(-3px)}
+  95%{opacity:0.8;transform:translateX(-5px) skewX(-2deg)}
+  97%{opacity:0.5;transform:translateX(2px)}
+  98%{opacity:0}
+}
+@keyframes glitch2 {
+  0%,94%,100%{opacity:0;transform:translateX(3px)}
+  95%{opacity:0.6;transform:translateX(5px) skewX(2deg)}
+  97%{opacity:0.4;transform:translateX(-3px)}
+  98%{opacity:0}
+}
+
+/* --- Stagger reveal для карточек --- */
+.service-card:nth-child(1).reveal { transition-delay: 0s; }
+.service-card:nth-child(2).reveal { transition-delay: .1s; }
+.service-card:nth-child(3).reveal { transition-delay: .2s; }
+.service-card:nth-child(4).reveal { transition-delay: .3s; }
+
+.work-card:nth-child(1).reveal  { transition-delay: 0s; }
+.work-card:nth-child(2).reveal  { transition-delay: .1s; }
+.work-card:nth-child(3).reveal  { transition-delay: .15s; }
+.work-card:nth-child(4).reveal  { transition-delay: .2s; }
+.work-card:nth-child(5).reveal  { transition-delay: .25s; }
+.work-card:nth-child(6).reveal  { transition-delay: .3s; }
+
+/* --- Floating particles canvas --- */
+#particlesCanvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.45;
+}
+
+/* --- Cursor glow trail --- */
+#cursorGlow {
+  position: fixed;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,255,61,0.07) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  transition: left .12s ease, top .12s ease;
+  will-change: left, top;
+}
+
+/* --- Счётчики с символом + --- */
+.meta-num-wrap { position: relative; display: inline-block; }
+.meta-num-plus {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--accent);
+  vertical-align: super;
+  margin-left: 2px;
+}
+
+/* --- Highlight анимация на section-title при появлении --- */
+.section-title.reveal.is-visible {
+  animation: titleShine 1.2s var(--ease) forwards;
+}
+@keyframes titleShine {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* --- Принципы — иконка появляется слева --- */
+.principle {
+  transition: transform .3s var(--ease);
+}
+.principle:hover {
+  transform: translateX(6px);
+}
+.principle-idx {
+  transition: color .3s, transform .3s;
+}
+.principle:hover .principle-idx {
+  color: var(--accent);
+  transform: scale(1.2);
+}
+
+/* --- Карточки отзывов — живее --- */
+.review-card {
+  position: relative;
+  overflow: hidden;
+}
+.review-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(200,255,61,0.04) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity .4s;
+}
+.review-card:hover::before { opacity: 1; }
+.review-card:hover {
+  border-color: var(--accent-dim) !important;
+  transform: translateY(-5px) !important;
+}
+
+/* --- Stars в отзывах --- */
+.review-stars {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 14px;
+}
+.review-stars span {
+  color: var(--accent);
+  font-size: 14px;
+  animation: starPop .4s var(--ease) both;
+}
+.review-stars span:nth-child(1){animation-delay:.05s}
+.review-stars span:nth-child(2){animation-delay:.1s}
+.review-stars span:nth-child(3){animation-delay:.15s}
+.review-stars span:nth-child(4){animation-delay:.2s}
+.review-stars span:nth-child(5){animation-delay:.25s}
+@keyframes starPop {
+  from{transform:scale(0) rotate(-30deg);opacity:0}
+  to{transform:scale(1) rotate(0deg);opacity:1}
+}
+
+/* --- Floating badge у фото --- */
+.portrait-badge {
+  animation: floatBadge 3s ease-in-out infinite;
+}
+@keyframes floatBadge {
+  0%,100%{ transform: translateY(0); }
+  50%{ transform: translateY(-5px); }
+}
+
+/* --- Pill hover с glow --- */
+.pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 0 12px rgba(200,255,61,0.2);
+}
+
+/* --- Scroll hint line быстрее и ярче --- */
+.scroll-line::after {
+  background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+  height: 40%;
+}
+
+/* --- Hero glow пульсирует --- */
+.hero::before {
+  animation: heroPulse 5s ease-in-out infinite;
+}
+@keyframes heroPulse {
+  0%,100%{ opacity:.7; transform: translateX(-50%) scale(1); }
+  50%{ opacity:1; transform: translateX(-50%) scale(1.08); }
+}
+
+/* --- Кнопка Submit shimmer --- */
+#formSubmitBtn:not(.is-loading):hover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
+  border-radius: inherit;
+  animation: shimmer .6s ease forwards;
+}
+#formSubmitBtn { position: relative; overflow: hidden; }
+@keyframes shimmer {
+  from{ transform: translateX(-100%); }
+  to{ transform: translateX(100%); }
+}
+
+/* --- Маркированный список в отзывах — живые кавычки --- */
+.review-quote-mark {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 56px;
+  animation: quoteFloat 4s ease-in-out infinite;
+}
+@keyframes quoteFloat {
+  0%,100%{ transform: translateY(0) rotate(0deg); }
+  50%{ transform: translateY(-4px) rotate(-3deg); }
+}
+
+/* --- Service card accent line сверху --- */
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  transform: scaleX(0);
+  transition: transform .4s var(--ease);
+}
+.service-card:hover::before { transform: scaleX(1); }
+
+/* --- Work card overlay text при hover --- */
+.work-card-visual .hover-label {
+  position: absolute;
+  bottom: 16px; right: 18px;
+  z-index: 3;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: .06em;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .3s, transform .3s;
+  text-transform: uppercase;
+}
+.work-card:hover .hover-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+

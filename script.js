@@ -486,8 +486,8 @@ function initContactForm(){
   if(!form) return;
 
   // ─── ВСТАВЬТЕ СВОИ ДАННЫЕ СЮДА ───────────────────────────────────────────
-  const TELEGRAM_BOT_TOKEN = "8761860276:AAHDpbhMLg9AQzmvg2blyf2pOxksk0FExUo";   // напр. "7123456789:AAF..."
-  const TELEGRAM_CHAT_ID   = "8379618183";     // напр. "-1001234567890" (группа) или "123456789" (лично)
+  const TELEGRAM_BOT_TOKEN = "ВАШ_BOT_TOKEN";   // напр. "7123456789:AAF..."
+  const TELEGRAM_CHAT_ID   = "ВАШ_CHAT_ID";     // напр. "-1001234567890" (группа) или "123456789" (лично)
   // ─────────────────────────────────────────────────────────────────────────
 
   form.addEventListener("submit", async (e) => {
@@ -560,6 +560,142 @@ function initLangSwitch(){
 }
 
 /* =========================================================================
+   PARTICLES CANVAS
+========================================================================= */
+function initParticles(){
+  const canvas = document.getElementById("particlesCanvas");
+  if(!canvas) return;
+  const ctx = canvas.getContext("2d");
+  let W, H, particles = [];
+
+  function resize(){
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener("resize", resize);
+
+  const COUNT = 55;
+  for(let i = 0; i < COUNT; i++){
+    particles.push({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      r: Math.random() * 1.4 + 0.3,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      alpha: Math.random() * 0.5 + 0.1
+    });
+  }
+
+  function draw(){
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => {
+      p.x += p.vx;
+      p.y += p.vy;
+      if(p.x < 0) p.x = W;
+      if(p.x > W) p.x = 0;
+      if(p.y < 0) p.y = H;
+      if(p.y > H) p.y = 0;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(200,255,61,${p.alpha})`;
+      ctx.fill();
+    });
+    // Draw connecting lines between close particles
+    for(let i = 0; i < particles.length; i++){
+      for(let j = i + 1; j < particles.length; j++){
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if(dist < 120){
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = `rgba(200,255,61,${0.06 * (1 - dist/120)})`;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+/* =========================================================================
+   CURSOR GLOW TRAIL
+========================================================================= */
+function initCursorGlow(){
+  const glow = document.getElementById("cursorGlow");
+  if(!glow) return;
+  let cx = -500, cy = -500;
+  let tx = -500, ty = -500;
+
+  document.addEventListener("mousemove", e => {
+    tx = e.clientX;
+    ty = e.clientY;
+  });
+
+  function animate(){
+    cx += (tx - cx) * 0.08;
+    cy += (ty - cy) * 0.08;
+    glow.style.left = cx + "px";
+    glow.style.top  = cy + "px";
+    requestAnimationFrame(animate);
+  }
+  animate();
+}
+
+/* =========================================================================
+   TYPEWRITER on eyebrows
+========================================================================= */
+function initTypewriters(){
+  const eyebrows = document.querySelectorAll(".eyebrow");
+  eyebrows.forEach(el => {
+    const original = el.textContent;
+    el.textContent = "";
+    el.classList.add("eyebrow-typed");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          observer.unobserve(el);
+          let i = 0;
+          const timer = setInterval(() => {
+            el.textContent = original.slice(0, i + 1);
+            i++;
+            if(i >= original.length) clearInterval(timer);
+          }, 38);
+        }
+      });
+    }, { threshold: 0.5 });
+    observer.observe(el);
+  });
+}
+
+/* =========================================================================
+   HOVER LABEL on work cards
+========================================================================= */
+function initWorkCardLabels(){
+  document.querySelectorAll(".work-card-visual").forEach(visual => {
+    const lbl = document.createElement("span");
+    lbl.className = "hover-label";
+    lbl.textContent = "открыть →";
+    visual.appendChild(lbl);
+  });
+}
+
+/* =========================================================================
+   SMOOTH REVEAL with stagger for principles
+========================================================================= */
+function initPrinciplesStagger(){
+  document.querySelectorAll(".principle").forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.1}s`;
+  });
+}
+
+/* =========================================================================
    BOOT
 ========================================================================= */
 document.addEventListener("DOMContentLoaded", () => {
@@ -571,4 +707,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initWorkFilters();
   initReviewsSlider();
   initContactForm();
+  initParticles();
+  initCursorGlow();
+  initTypewriters();
+  initWorkCardLabels();
+  initPrinciplesStagger();
 });

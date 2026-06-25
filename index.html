@@ -16,6 +16,8 @@
 
 <!-- ================= NOISE / GRID OVERLAY ================= -->
 <div class="grid-overlay" aria-hidden="true"></div>
+<canvas id="particlesCanvas" aria-hidden="true"></canvas>
+<div id="cursorGlow" aria-hidden="true"></div>
 
 <!-- ================= HEADER ================= -->
 <header class="site-header">
@@ -60,7 +62,7 @@
 
       <h1 class="hero-title">
         <span class="reveal-line"><span class="reveal-word" data-i18n="hero.t1">Создаю сайты,</span></span>
-        <span class="reveal-line"><span class="reveal-word" data-i18n="hero.t2">которые</span> <span class="hero-accent" data-i18n="hero.t3">продают</span></span>
+        <span class="reveal-line"><span class="reveal-word" data-i18n="hero.t2">которые</span> <span class="hero-accent" data-i18n="hero.t3" data-text="продают">продают</span></span>
         <span class="reveal-line"><span class="reveal-word" data-i18n="hero.t4">и выделяют бизнес</span></span>
       </h1>
 
@@ -80,7 +82,7 @@
 
       <div class="hero-meta reveal">
         <div class="meta-item">
-          <span class="meta-num" data-count="127">0</span>
+          <span><span class="meta-num" data-count="127">0</span><span class="meta-num-plus">+</span></span>
           <span class="meta-label" data-i18n="hero.meta1">проектов сдано</span>
         </div>
         <div class="meta-divider"></div>
@@ -415,8 +417,9 @@
         <div class="reviews-track" id="reviewsTrack">
 
           <article class="review-card">
+            <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
             <div class="review-quote-mark">“</div>
-            <p class="review-text" data-i18n="reviews.r1Text">Сделали лендинг за две недели, и он реально начал приносить заявки с первого дня. Дотошность в деталях — отдельный респект.</p>
+            <p class="review-text" data-i18n="reviews.r1Text">Сделал лендинг за 3 дня, всё чётко и без лишних вопросов. Результат превзошёл ожидания — заявки пошли в первый же день. Брал уже второй раз, буду и третий.</p>
             <div class="review-author">
               <div class="review-avatar" style="background:linear-gradient(135deg,#C8FF3D,#5B7A1F)"></div>
               <div>
@@ -427,20 +430,22 @@
           </article>
 
           <article class="review-card">
+            <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
             <div class="review-quote-mark">“</div>
-            <p class="review-text" data-i18n="reviews.r2Text">Магазин собрали именно так, как мы представляли — без компромиссов на скорость загрузки. Клиенты сами отметили, что сайт стал удобнее.</p>
+            <p class="review-text" data-i18n="reviews.r2Text">Честно, не ожидала такого результата за эти деньги. Магазин работает быстро, выглядит дорого. Клиенты сами отметили что стало удобнее. Советую.</p>
             <div class="review-author">
               <div class="review-avatar" style="background:linear-gradient(135deg,#7DD3FC,#1E3A8A)"></div>
               <div>
                 <h4 data-i18n="reviews.r2Name">Алина Марчук</h4>
-                <span data-i18n="reviews.r2Role">Co-founder, Marble & Co.</span>
+                <span data-i18n="reviews.r2Role">Co-founder, Marble &amp; Co.</span>
               </div>
             </div>
           </article>
 
           <article class="review-card">
+            <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
             <div class="review-quote-mark">“</div>
-            <p class="review-text" data-i18n="reviews.r3Text">Редкий случай, когда разработчик сам предлагает, как улучшить продукт, а не просто выполняет техзадание. Конверсия в триал выросла заметно.</p>
+            <p class="review-text" data-i18n="reviews.r3Text">Долго искал нормального разработчика — нашёл. Не просто сделал что сказали, ещё и предложил улучшения которые реально сработали. Конверсия выросла на треть.</p>
             <div class="review-author">
               <div class="review-avatar" style="background:linear-gradient(135deg,#FCA5A5,#7F1D1D)"></div>
               <div>
@@ -451,8 +456,9 @@
           </article>
 
           <article class="review-card">
+            <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
             <div class="review-quote-mark">“</div>
-            <p class="review-text" data-i18n="reviews.r4Text">Бронирование столиков теперь занимает 30 секунд вместо звонков администратору. Гости часто хвалят сайт отдельно от кухни.</p>
+            <p class="review-text" data-i18n="reviews.r4Text">Сделали всё как надо, без воды и лишних звонков. Гости теперь бронируют столики сами онлайн — администратор выдохнул. Сайт хвалят отдельно от кухни.</p>
             <div class="review-author">
               <div class="review-avatar" style="background:linear-gradient(135deg,#FDE68A,#92400E)"></div>
               <div>
@@ -463,8 +469,9 @@
           </article>
 
           <article class="review-card">
+            <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
             <div class="review-quote-mark">“</div>
-            <p class="review-text" data-i18n="reviews.r5Text">Личный кабинет пациента собрали с учётом всех медицинских нюансов и сроков — никаких задержек по проекту не было вообще.</p>
+            <p class="review-text" data-i18n="reviews.r5Text">Работали чётко, в срок, без лишней воды. Кабинет пациента получился удобным — пациенты разобрались без инструкций. Ни одной задержки по проекту.</p>
             <div class="review-author">
               <div class="review-avatar" style="background:linear-gradient(135deg,#C4B5FD,#4C1D95)"></div>
               <div>
