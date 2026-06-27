@@ -124,7 +124,7 @@ const I18N = {
     "contact.msgLabel": "Сообщение",
     "contact.msgPh": "Расскажите о задаче — пару строк достаточно",
     "contact.send": "Отправить",
-    "contact.note": "Данные отправляются только вам — никаких спамеров.",
+    "contact.note": "",
     "contact.success": "✓ Сообщение отправлено! Свяжусь с вами в течение дня.",
 
     "footer.rights": "© 2026 ItCompe. Все права защищены.",
@@ -253,7 +253,7 @@ const I18N = {
     "contact.msgLabel": "Message",
     "contact.msgPh": "Tell me about the task — a couple of lines is enough",
     "contact.send": "Send message",
-    "contact.note": "Your data is sent only to me — no spam.",
+    "contact.note": "",
     "contact.success": "✓ Message sent! I'll get back to you within a day.",
 
     "footer.rights": "© 2026 ItCompe. All rights reserved.",
@@ -475,8 +475,6 @@ function initReviewsSlider(){
 
 /* =========================================================================
    CONTACT FORM → TELEGRAM BOT
-   Замените TELEGRAM_BOT_TOKEN и TELEGRAM_CHAT_ID своими значениями.
-   Инструкция: см. README ниже в комментарии.
 ========================================================================= */
 function initContactForm(){
   const form    = document.getElementById("contactForm");
@@ -485,10 +483,8 @@ function initContactForm(){
   const submitBtn = document.getElementById("formSubmitBtn");
   if(!form) return;
 
-  // ─── ВСТАВЬТЕ СВОИ ДАННЫЕ СЮДА ───────────────────────────────────────────
-  const TELEGRAM_BOT_TOKEN = "ВАШ_BOT_TOKEN";   // напр. "7123456789:AAF..."
-  const TELEGRAM_CHAT_ID   = "ВАШ_CHAT_ID";     // напр. "-1001234567890" (группа) или "123456789" (лично)
-  // ─────────────────────────────────────────────────────────────────────────
+  const TELEGRAM_BOT_TOKEN = "ВАШ_BOT_TOKEN";
+  const TELEGRAM_CHAT_ID   = "ВАШ_CHAT_ID";
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -497,7 +493,6 @@ function initContactForm(){
     const contact = form.querySelector("#cf-contact").value.trim();
     const message = form.querySelector("#cf-msg").value.trim();
 
-    // Скрыть предыдущие статусы
     success.classList.remove("is-visible");
     error.classList.remove("is-visible");
     submitBtn.classList.add("is-loading");
@@ -602,7 +597,6 @@ function initParticles(){
       ctx.fillStyle = `rgba(200,255,61,${p.alpha})`;
       ctx.fill();
     });
-    // Draw connecting lines between close particles
     for(let i = 0; i < particles.length; i++){
       for(let j = i + 1; j < particles.length; j++){
         const dx = particles[i].x - particles[j].x;
